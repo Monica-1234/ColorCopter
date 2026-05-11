@@ -1,0 +1,2366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Source brief: :contentReference[oaicite:0]{index=0} -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>ColorCopter | Drone Painting, Waterproofing & Exterior Maintenance</title>
+
+  <meta name="description" content="ColorCopter offers drone painting, water pressure washing, waterproofing, texture coating and exterior maintenance services using advanced aerial technology." />
+  <meta name="keywords" content="ColorCopter, drone painting, drone waterproofing, pressure washing, exterior painting, building painting, texture coating, facade maintenance, high rise painting, commercial building painting" />
+  <meta name="author" content="ColorCopter" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="ColorCopter | Painting the Future From Above" />
+  <meta property="og:description" content="Drone-powered painting, waterproofing, pressure washing and exterior maintenance for modern buildings." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1400&q=90" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ColorCopter | Drone Painting & Exterior Maintenance" />
+  <meta name="twitter:description" content="Safer, faster and ultra-precise exterior surface services using drone technology." />
+
+  <link rel="canonical" href="https://colorcopter.com/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ColorCopter",
+    "description": "Drone-based painting, waterproofing, pressure washing and exterior maintenance services.",
+    "telephone": "+91 90100 02020",
+    "url": "https://colorcopter.com/",
+    "areaServed": "India",
+    "serviceType": [
+      "Drone Painting",
+      "Water Pressure Washing",
+      "Waterproofing",
+      "Texture Coating",
+      "Exterior Maintenance"
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --white: #ffffff;
+      --soft: #f5f7fa;
+      --soft2: #eef2f7;
+      --text: #111111;
+      --muted: #667085;
+      --blue: #2f6bff;
+      --blue2: #7ea2ff;
+      --dark: #07090f;
+      --border: rgba(17, 17, 17, 0.09);
+      --shadow: 0 30px 90px rgba(15, 23, 42, 0.08);
+      --radius: 30px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      border: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), #a9c0ff);
+      z-index: 9999;
+    }
+
+    .cursor {
+      width: 18px;
+      height: 18px;
+      border: 1px solid rgba(47,107,255,.45);
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 99999;
+      backdrop-filter: blur(4px);
+      transition: width .2s ease, height .2s ease, background .2s ease;
+    }
+
+    .cursor.active {
+      width: 46px;
+      height: 46px;
+      background: rgba(47,107,255,.08);
+    }
+
+    .navbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      padding: 22px 0;
+      transition: .35s var(--ease);
+    }
+
+    .navbar.scrolled {
+      padding: 13px 0;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -.055em;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: rgba(17,17,17,.72);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-links a {
+      transition: .3s var(--ease);
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 22px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 900;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      transition: .35s var(--ease);
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent);
+      transition: .75s ease;
+    }
+
+    .btn:hover::after {
+      transform: translateX(120%);
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--white);
+      box-shadow: 0 18px 44px rgba(17,17,17,.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--blue);
+      transform: translateY(-3px);
+      box-shadow: 0 22px 60px rgba(47,107,255,.28);
+    }
+
+    .btn-glass {
+      background: rgba(255,255,255,.78);
+      color: var(--text);
+      border: 1px solid rgba(17,17,17,.09);
+      backdrop-filter: blur(18px);
+    }
+
+    .btn-glass:hover {
+      transform: translateY(-3px);
+      border-color: rgba(47,107,255,.3);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 152px 0 84px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(47,107,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47,107,255,.035) 1px, transparent 1px),
+        radial-gradient(circle at 12% 22%, rgba(47,107,255,.16), transparent 32%),
+        radial-gradient(circle at 88% 12%, rgba(47,107,255,.12), transparent 28%),
+        #ffffff;
+      background-size: 62px 62px, 62px 62px, auto, auto;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(72px);
+      background: rgba(47,107,255,.16);
+      animation: orb 8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .orb.one {
+      width: 370px;
+      height: 370px;
+      right: 5%;
+      top: 15%;
+    }
+
+    .orb.two {
+      width: 280px;
+      height: 280px;
+      left: 5%;
+      bottom: 4%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes orb {
+      from { transform: translateY(0) scale(1); opacity: .55; }
+      to { transform: translateY(-28px) scale(1.16); opacity: .9; }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(17,17,17,.08);
+      box-shadow: 0 14px 40px rgba(15,23,42,.05);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6.7vw, 84px);
+      line-height: 1.02;
+      letter-spacing: -.058em;
+      font-weight: 800;
+      margin-bottom: 26px;
+      max-width: 780px;
+    }
+
+    .hero-text {
+      font-size: clamp(17px, 1.9vw, 21px);
+      line-height: 1.72;
+      color: var(--muted);
+      max-width: 665px;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-mini {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .hero-mini span {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(47,107,255,.1);
+      color: var(--blue);
+    }
+
+    .hero-visual {
+      min-height: 610px;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .hero-frame {
+      position: absolute;
+      inset: 38px 0 auto 0;
+      height: 545px;
+      border-radius: 44px;
+      overflow: hidden;
+      box-shadow: 0 55px 135px rgba(15,23,42,.18);
+      transform: rotateX(4deg) rotateY(-5deg);
+      transition: transform .15s ease-out;
+    }
+
+    .hero-frame img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.4), transparent 55%);
+    }
+
+    .drone-chip {
+      position: absolute;
+      right: -20px;
+      top: 14px;
+      width: 170px;
+      height: 170px;
+      border-radius: 34px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.82);
+      backdrop-filter: blur(24px);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 34px 90px rgba(15,23,42,.16);
+      animation: float 4s ease-in-out infinite;
+      z-index: 4;
+    }
+
+    .drone-chip i {
+      font-size: 58px;
+      color: var(--blue);
+    }
+
+    .scan-card {
+      position: absolute;
+      left: -26px;
+      bottom: 58px;
+      width: 252px;
+      padding: 20px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(255,255,255,.84);
+      backdrop-filter: blur(24px);
+      box-shadow: 0 30px 90px rgba(15,23,42,.14);
+      z-index: 4;
+    }
+
+    .scan-card strong {
+      display: block;
+      margin-bottom: 12px;
+      letter-spacing: -.03em;
+    }
+
+    .scan-line {
+      height: 8px;
+      border-radius: 999px;
+      background: #edf1f7;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .scan-line span {
+      display: block;
+      width: 72%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), #96b2ff);
+      animation: scan 2.8s ease-in-out infinite;
+    }
+
+    .scan-card small {
+      color: var(--muted);
+      line-height: 1.5;
+      display: block;
+    }
+
+    @keyframes scan {
+      0% { width: 18%; }
+      60% { width: 90%; }
+      100% { width: 72%; }
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-18px); }
+    }
+
+    .marquee-wrap {
+      background: #fff;
+      border-block: 1px solid rgba(17,17,17,.08);
+      overflow: hidden;
+      padding: 20px 0;
+    }
+
+    .marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 34s linear infinite;
+    }
+
+    .marquee:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      padding-right: 34px;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 900;
+      color: rgba(17,17,17,.72);
+      white-space: nowrap;
+    }
+
+    .marquee-item i {
+      color: var(--blue);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .section {
+      padding: 116px 0;
+      position: relative;
+    }
+
+    .section-soft {
+      background: var(--soft);
+    }
+
+    .section-dark {
+      background: var(--dark);
+      color: white;
+      overflow: hidden;
+    }
+
+    .section-dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 54px 54px;
+      opacity: .7;
+    }
+
+    .section-dark .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 56px;
+    }
+
+    .section-head.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.03;
+      letter-spacing: -.058em;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.72;
+    }
+
+    .section-dark .section-head p {
+      color: rgba(255,255,255,.64);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(17,17,17,.08);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 20px 60px rgba(15,23,42,.05);
+      transition: .35s var(--ease);
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(47,107,255,.35);
+      box-shadow: 0 35px 90px rgba(47,107,255,.12);
+    }
+
+    .service-img {
+      height: 184px;
+      border-radius: 22px;
+      overflow: hidden;
+      margin-bottom: 22px;
+      background: #e8edf5;
+    }
+
+    .service-img img {
+      height: 100%;
+      object-fit: cover;
+      transition: .5s var(--ease);
+    }
+
+    .service-card:hover .service-img img {
+      transform: scale(1.08);
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(47,107,255,.14), rgba(47,107,255,.025));
+      color: var(--blue);
+      font-size: 20px;
+      margin-bottom: 17px;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      letter-spacing: -.04em;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .learn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .learn i {
+      transition: .3s var(--ease);
+    }
+
+    .service-card:hover .learn i {
+      transform: translateX(7px);
+    }
+
+    .why-lab {
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .why-command {
+      border-radius: 40px;
+      padding: 34px;
+      background:
+        radial-gradient(circle at 24% 20%, rgba(47,107,255,.18), transparent 32%),
+        linear-gradient(145deg, #ffffff, #f4f7fb);
+      border: 1px solid rgba(17,17,17,.08);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      min-height: 620px;
+    }
+
+    .why-command::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(47,107,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47,107,255,.055) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    .why-command-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .command-screen {
+      height: 340px;
+      border-radius: 32px;
+      background: #080a0f;
+      margin-top: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.1), 0 28px 80px rgba(15,23,42,.18);
+    }
+
+    .command-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 34px 34px;
+    }
+
+    .route-line {
+      position: absolute;
+      inset: 44px;
+      border: 1px dashed rgba(126,162,255,.45);
+      border-radius: 22px;
+    }
+
+    .route-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 12px rgba(47,107,255,.14);
+      position: absolute;
+      animation: route 8s linear infinite;
+    }
+
+    @keyframes route {
+      0% { left: 40px; top: 40px; }
+      25% { left: calc(100% - 54px); top: 40px; }
+      50% { left: calc(100% - 54px); top: calc(100% - 54px); }
+      75% { left: 40px; top: calc(100% - 54px); }
+      100% { left: 40px; top: 40px; }
+    }
+
+    .telemetry {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .telemetry div {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.08);
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .why-card {
+      border-radius: 30px;
+      background: white;
+      border: 1px solid rgba(17,17,17,.08);
+      padding: 28px;
+      box-shadow: 0 18px 55px rgba(15,23,42,.045);
+      transition: .35s var(--ease);
+      min-height: 190px;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(47,107,255,.28);
+      box-shadow: var(--shadow);
+    }
+
+    .why-card i {
+      color: var(--blue);
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .why-card h3 {
+      font-size: 21px;
+      letter-spacing: -.04em;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14.5px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .tech-card {
+      border-radius: 36px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 34px;
+      backdrop-filter: blur(20px);
+      min-height: 360px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tech-card::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(47,107,255,.26);
+      filter: blur(70px);
+      right: -80px;
+      bottom: -90px;
+    }
+
+    .tech-card h3 {
+      font-size: 32px;
+      letter-spacing: -.05em;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tech-card p {
+      color: rgba(255,255,255,.65);
+      line-height: 1.7;
+      position: relative;
+      z-index: 2;
+    }
+
+    .radar {
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.16);
+      margin: 28px auto 0;
+      position: relative;
+      background: radial-gradient(circle, rgba(47,107,255,.22), transparent 60%);
+      overflow: hidden;
+    }
+
+    .radar::before {
+      content: "";
+      position: absolute;
+      inset: 50% 0 0 50%;
+      background: linear-gradient(45deg, rgba(47,107,255,.85), transparent 55%);
+      transform-origin: 0 0;
+      animation: rotateRadar 3s linear infinite;
+    }
+
+    .radar::after {
+      content: "\f544";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 44px;
+      color: white;
+    }
+
+    @keyframes rotateRadar {
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
+    }
+
+    .mini-tech {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini {
+      border-radius: 28px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 26px;
+      backdrop-filter: blur(16px);
+    }
+
+    .mini i {
+      color: var(--blue);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .mini h3 {
+      font-size: 21px;
+      letter-spacing: -.04em;
+      margin-bottom: 8px;
+    }
+
+    .mini p {
+      color: rgba(255,255,255,.62);
+      line-height: 1.65;
+      font-size: 14.5px;
+    }
+
+    .process-map {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      position: relative;
+    }
+
+    .process-map::before {
+      content: "";
+      position: absolute;
+      top: 48px;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+
+    .step {
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(17,17,17,.08);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 20px 60px rgba(15,23,42,.05);
+      transition: .35s var(--ease);
+    }
+
+    .step:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--text);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      margin-bottom: 40px;
+    }
+
+    .step h3 {
+      font-size: 21px;
+      letter-spacing: -.04em;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14.5px;
+    }
+
+    .carousel-section {
+      overflow: hidden;
+      background: white;
+    }
+
+    .image-carousel {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      animation: imageFlow 46s linear infinite;
+    }
+
+    .image-carousel:hover {
+      animation-play-state: paused;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 22px;
+      padding-right: 22px;
+    }
+
+    .carousel-card {
+      width: 360px;
+      height: 460px;
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      background: #e8edf5;
+    }
+
+    .carousel-card img {
+      height: 100%;
+      object-fit: cover;
+      transition: .5s var(--ease);
+    }
+
+    .carousel-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .carousel-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.62), transparent 58%);
+    }
+
+    .carousel-caption {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      right: 24px;
+      color: white;
+      z-index: 2;
+    }
+
+    .carousel-caption span {
+      font-size: 12px;
+      opacity: .8;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .carousel-caption h3 {
+      font-size: 24px;
+      letter-spacing: -.05em;
+      margin-top: 7px;
+    }
+
+    @keyframes imageFlow {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .usecase-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+    }
+
+    .usecase-card {
+      border-radius: 34px;
+      padding: 32px;
+      background: white;
+      border: 1px solid rgba(17,17,17,.08);
+      box-shadow: 0 20px 60px rgba(15,23,42,.05);
+      min-height: 260px;
+      transition: .35s var(--ease);
+    }
+
+    .usecase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .usecase-card.blue {
+      background: linear-gradient(135deg, #111, #1d2b4c 62%, var(--blue));
+      color: white;
+    }
+
+    .usecase-card h3 {
+      font-size: 30px;
+      letter-spacing: -.055em;
+      margin-bottom: 14px;
+    }
+
+    .usecase-card p {
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .usecase-card.blue p {
+      color: rgba(255,255,255,.7);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .chip {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(47,107,255,.09);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .usecase-card.blue .chip {
+      background: rgba(255,255,255,.1);
+      color: white;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .faq-column {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: white;
+      border: 1px solid rgba(17,17,17,.08);
+      border-radius: 22px;
+      box-shadow: 0 16px 45px rgba(15,23,42,.04);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .faq-question i {
+      color: var(--blue);
+      transition: .3s var(--ease);
+      min-width: 16px;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s var(--ease);
+    }
+
+    .faq-answer p {
+      color: var(--muted);
+      line-height: 1.7;
+      padding: 0 22px 22px;
+      font-size: 14.5px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 260px;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(45deg);
+    }
+
+    .cta {
+      padding: 90px 0;
+    }
+
+    .cta-box {
+      border-radius: 44px;
+      padding: 74px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(255,255,255,.24), transparent 34%),
+        linear-gradient(135deg, #111111, #1b2437 55%, #2f6bff);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 46px 46px;
+      opacity: .5;
+    }
+
+    .cta-box h2,
+    .cta-box p,
+    .cta-box a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-box p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: rgba(255,255,255,.76);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    footer {
+      background: #08090c;
+      color: white;
+      padding: 82px 0 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 42px;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer p,
+    footer a {
+      color: rgba(255,255,255,.62);
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    footer h4 {
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .social {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.08);
+      transition: .3s var(--ease);
+    }
+
+    .social a:hover {
+      background: var(--blue);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      position: relative;
+      z-index: 2;
+      margin-top: 60px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,.48);
+      font-size: 13px;
+    }
+
+    /* Client logo carousel */
+    .client-logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 160px;
+      height: 90px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid rgba(17,17,17,.08);
+      box-shadow: 0 8px 28px rgba(15,23,42,.05);
+      flex-shrink: 0;
+      transition: .3s var(--ease);
+    }
+
+    .client-logo-card:hover {
+      border-color: rgba(47,107,255,.3);
+      box-shadow: 0 16px 48px rgba(47,107,255,.1);
+      transform: translateY(-4px);
+    }
+
+    .client-logo-card i {
+      font-size: 22px;
+      color: var(--blue);
+    }
+
+    .client-logo-card span {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text);
+      text-align: center;
+      padding: 0 10px;
+      line-height: 1.3;
+    }
+
+    .clients-track-1 { animation: clientsLeft 40s linear infinite; }
+    .clients-track-1:hover { animation-play-state: paused; }
+
+    @keyframes clientsLeft {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #111;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      z-index: 900;
+      box-shadow: 0 22px 60px rgba(0,0,0,.22);
+      transition: .35s var(--ease);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-5px) scale(1.04);
+      background: #25D366;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: .82s var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .cards,
+      .process-map {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-map::before {
+        display: none;
+      }
+
+      .why-lab,
+      .tech-grid,
+      .usecase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      body {
+        cursor: auto;
+      }
+
+      .cursor {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 76px;
+        left: 20px;
+        right: 20px;
+        flex-direction: column;
+        padding: 28px;
+        background: rgba(255,255,255,.95);
+        border: 1px solid rgba(17,17,17,.08);
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(24px);
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: .35s var(--ease);
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .hero-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 130px;
+      }
+
+      .hero-visual {
+        min-height: 540px;
+      }
+
+      .hero-frame {
+        height: 500px;
+      }
+
+      .scan-card {
+        left: 20px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .hero {
+        padding-bottom: 50px;
+      }
+
+      h1 {
+        letter-spacing: -.045em;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .cards,
+      .process-map,
+      .why-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .hero-frame {
+        inset: 18px 0 auto 0;
+        height: 372px;
+        border-radius: 28px;
+      }
+
+      .drone-chip {
+        width: 112px;
+        height: 112px;
+        right: 8px;
+      }
+
+      .drone-chip i {
+        font-size: 38px;
+      }
+
+      .scan-card {
+        width: calc(100% - 32px);
+        left: 16px;
+        bottom: 0;
+      }
+
+      .why-command {
+        min-height: auto;
+        padding: 24px;
+        border-radius: 30px;
+      }
+
+      .command-screen {
+        height: 300px;
+      }
+
+      .telemetry {
+        grid-template-columns: 1fr;
+      }
+
+      .carousel-card {
+        width: 280px;
+        height: 390px;
+      }
+
+      .cta-box {
+        padding: 46px 24px;
+        border-radius: 30px;
+      }
+
+      .copyright {
+        flex-direction: column;
+      }
+      .logo {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -.088em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  line-height: 1;
+}
+
+      /* About section responsive */
+      #about [style*="grid-template-columns:1fr 1fr"],
+      #about [style*="grid-template-columns:repeat(3,1fr)"],
+      #about [style*="grid-template-columns:repeat(5,1fr)"],
+      #about [style*="grid-template-columns:1fr auto"] {
+        grid-template-columns: 1fr !important;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="cursor" id="cursor"></div>
+
+  <nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo" style="overflow:visible;position:relative;display:flex;align-items:center;min-width:160px;height:100%;">
+      <img src="logo.png" alt="ColorCopter Logo" style="position:absolute;top:50%;left:0;transform:translateY(-50%);height:130px;width:auto;object-fit:contain;" />
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#technology">Technology</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="btn btn-primary nav-cta" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20got%20to%20know%20about%20ColorCopter%20and%20I%20want%20to%20know%20more%20details.">Book Inspection</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+
+  <main>
+    <section class="hero" id="home">
+      <div class="orb one"></div>
+      <div class="orb two"></div>
+
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow reveal">
+            <i class="fa-solid fa-helicopter-symbol"></i>
+            Drone-Powered Surface Excellence
+          </div>
+
+          <h1 class="reveal">Next-Generation Drone Painting Technology</h1>
+
+          <p class="hero-text reveal">
+            ColorCopter delivers safer, faster and ultra-precise exterior painting, pressure washing, waterproofing and texture coating using advanced aerial drone systems.
+          </p>
+
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20got%20to%20know%20about%20ColorCopter%20and%20I%20want%20to%20know%20more%20details.">
+              Get Free Quote <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a class="btn btn-glass" href="#services">
+              Explore Services <i class="fa-solid fa-arrow-down"></i>
+            </a>
+          </div>
+
+          <div class="hero-mini reveal">
+            <span><i class="fa-solid fa-shield-halved"></i></span>
+            Built for high-rise, commercial and industrial exterior maintenance.
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="hero-frame" id="heroFrame">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1506947411487-a56738267384?auto=format&fit=crop&w=1400&q=90" alt="Drone used for building exterior maintenance and inspection" />
+          </div>
+
+          <div class="drone-chip">
+            <i class="fa-solid fa-helicopter-symbol"></i>
+          </div>
+
+          <div class="scan-card">
+            <strong>Surface Scan Active</strong>
+            <div class="scan-line"><span></span></div>
+            <small>Mapping facade coverage and application zones</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-wrap">
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="marquee-item"><i class="fa-solid fa-shield-halved"></i> Safer High-Rise Work</span>
+          <span class="marquee-item"><i class="fa-solid fa-gauge-high"></i> Faster Completion</span>
+          <span class="marquee-item"><i class="fa-solid fa-crosshairs"></i> Precision Application</span>
+          <span class="marquee-item"><i class="fa-solid fa-leaf"></i> Reduced Material Waste</span>
+          <span class="marquee-item"><i class="fa-solid fa-building"></i> Facade Maintenance</span>
+          <span class="marquee-item"><i class="fa-solid fa-water"></i> Pressure Washing</span>
+          <span class="marquee-item"><i class="fa-solid fa-droplet"></i> Waterproof Protection</span>
+          <span class="marquee-item"><i class="fa-solid fa-layer-group"></i> Texture Coating</span>
+        </div>
+        <div class="marquee-track">
+          <span class="marquee-item"><i class="fa-solid fa-shield-halved"></i> Safer High-Rise Work</span>
+          <span class="marquee-item"><i class="fa-solid fa-gauge-high"></i> Faster Completion</span>
+          <span class="marquee-item"><i class="fa-solid fa-crosshairs"></i> Precision Application</span>
+          <span class="marquee-item"><i class="fa-solid fa-leaf"></i> Reduced Material Waste</span>
+          <span class="marquee-item"><i class="fa-solid fa-building"></i> Facade Maintenance</span>
+          <span class="marquee-item"><i class="fa-solid fa-water"></i> Pressure Washing</span>
+          <span class="marquee-item"><i class="fa-solid fa-droplet"></i> Waterproof Protection</span>
+          <span class="marquee-item"><i class="fa-solid fa-layer-group"></i> Texture Coating</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section moved: inserted after marquee -->
+
+    <section id="about" style="padding:0;background:var(--soft);">
+
+      <!-- Block 1: Big heading left + leadership cards right -->
+      <div style="padding:100px 0 80px;background:var(--soft);">
+        <div class="container">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+            <div class="reveal">
+              <div class="label">About Us</div>
+              <h2 style="font-size:clamp(42px,5.5vw,72px);letter-spacing:-.055em;line-height:1.04;margin-bottom:22px;">50+ years of trust. A legacy built on quality.</h2>
+              <p style="color:var(--muted);font-size:17px;line-height:1.75;margin-bottom:0;">Established in 1973 by Mr. Devarashetty Ramesh Gupta, Sri Rama Paints and Pipe Fitting Store is a trusted name in interior and exterior paints, wallpapers, and allied products. With over 50 years of legacy, we are known for quality products, dependable service, and long-term client relationships.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;" class="reveal">
+              <div class="service-card" style="text-align:center;padding:32px 20px;">
+                <div style="width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:3px solid rgba(47,107,255,.2);">
+                  <img loading="lazy" src="IMG-20260511-WA0006.jpg" alt="Mr. Devarashetty Vijay Kumar" style="height:100%;object-fit:cover;" />
+                </div>
+                <h3 style="font-size:17px;margin-bottom:5px;letter-spacing:-.03em;">Mr.Vijay Kumar</h3>
+                <p style="color:var(--blue);font-size:12px;font-weight:900;margin-bottom:10px;">Managing Director - Sri Rama Group</p>
+                <p style="font-size:13px;line-height:1.6;color:var(--muted);">Continuing the founder's vision with consistent quality and customer satisfaction.</p>
+              </div>
+              <div class="service-card" style="text-align:center;padding:32px 20px;">
+                <div style="width:100px;height:100px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:3px solid rgba(47,107,255,.2);">
+                  <img loading="lazy" src="DSC01919.jpg" alt="Mr. Anu Deep" style="height:100%;object-fit:cover;" />
+                </div>
+                <h3 style="font-size:17px;margin-bottom:5px;letter-spacing:-.03em;">Mr.Anu Deep</h3>
+                <p style="color:var(--blue);font-size:12px;font-weight:900;margin-bottom:10px;">Managing Director - Home Total Expert Solutions</p>
+                <p style="font-size:13px;line-height:1.6;color:var(--muted);">Operations strategist ensuring every project is delivered on time and to spec.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Block 2: Image left + Sister Concern right (dark bg) -->
+      <div style="background:var(--dark);color:white;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
+          <div style="position:relative;overflow:hidden;min-height:480px;">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=90" alt="Painting work" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
+          <div style="padding:64px 56px;display:flex;flex-direction:column;justify-content:center;" class="reveal">
+            <div class="label" style="color:rgba(255,255,255,.55);margin-bottom:14px;">Who We Are</div>
+            <h2 style="font-size:clamp(28px,3.2vw,44px);letter-spacing:-.05em;line-height:1.06;margin-bottom:18px;color:white;">Home Total Expert Solutions Pvt. Ltd.</h2>
+            <p style="color:rgba(255,255,255,.65);line-height:1.75;font-size:15px;margin-bottom:24px;">Formerly Paint Total &mdash; a sister concern of the Sri Rama Group managed by Mr. Vijay Kumar and Mr. Anu Deep. Delivering end-to-end project execution for painting, waterproofing, and complete renovation works.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;">
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;"><i class="fa-solid fa-check" style="color:var(--blue);"></i> Painting Solutions</div>
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;"><i class="fa-solid fa-check" style="color:var(--blue);"></i> Waterproofing</div>
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;"><i class="fa-solid fa-check" style="color:var(--blue);"></i> Renovation Works</div>
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;"><i class="fa-solid fa-check" style="color:var(--blue);"></i> Plumbing &amp; Electrical</div>
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;"><i class="fa-solid fa-check" style="color:var(--blue);"></i> Decorative Textures</div>
+              <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:13px;font-weight:700;"><i class="fa-solid fa-check" style="color:var(--blue);"></i> Tile Laying &amp; Flooring</div>
+            </div>
+            <div>
+              <a href="https://www.hometotal.in" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex;">
+                Visit Home Total <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 3: Left heading + description | Right 4 stats (dark bg) -->
+      <div style="background:var(--dark);color:white;border-top:1px solid rgba(255,255,255,.07);">
+        <div class="container" style="padding:80px 0;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+            <div class="reveal">
+              <div class="label" style="color:rgba(255,255,255,.55);margin-bottom:14px;">About Us</div>
+              <h2 style="font-size:clamp(32px,4vw,54px);letter-spacing:-.055em;line-height:1.06;margin-bottom:20px;color:white;">Sri Rama Group &mdash; Trusted for Generations</h2>
+              <p style="color:rgba(255,255,255,.6);font-size:15px;line-height:1.75;">The organization is led by Mr. Devarashetty Vijay Kumar, who continues the founder's vision by delivering consistent quality, professional execution, and customer satisfaction. Leading Asian Paints dealer in Hyderabad for 10+ years with a skilled workforce, modern tools, and transparent pricing.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;border-radius:24px;overflow:hidden;" class="reveal">
+              <div style="background:rgba(255,255,255,.05);padding:40px 32px;text-align:center;">
+                <div style="font-size:52px;font-weight:900;color:white;letter-spacing:-.04em;line-height:1;">2,500+</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);font-weight:700;margin-top:8px;">Projects Completed</div>
+              </div>
+              <div style="background:rgba(255,255,255,.05);padding:40px 32px;text-align:center;">
+                <div style="font-size:52px;font-weight:900;color:white;letter-spacing:-.04em;line-height:1;">15+</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);font-weight:700;margin-top:8px;">Years in Operations</div>
+              </div>
+              <div style="background:rgba(255,255,255,.05);padding:40px 32px;text-align:center;">
+                <div style="font-size:52px;font-weight:900;color:white;letter-spacing:-.04em;line-height:1;">300+</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);font-weight:700;margin-top:8px;">Prestigious Projects</div>
+              </div>
+              <div style="background:rgba(255,255,255,.05);padding:40px 32px;text-align:center;">
+                <div style="font-size:52px;font-weight:900;color:white;letter-spacing:-.04em;line-height:1;">50+</div>
+                <div style="font-size:13px;color:rgba(255,255,255,.55);font-weight:700;margin-top:8px;">Years of Legacy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 4: Strengths + Why Clients (light bg) -->
+      <div style="background:var(--soft);padding:80px 0;">
+        <div class="container">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+            <div class="reveal">
+              <div class="label" style="margin-bottom:18px;">Our Strengths</div>
+              <div style="display:grid;gap:16px;">
+                <div class="why-card" style="min-height:auto;padding:22px 24px;">
+                  <i class="fa-solid fa-medal"></i>
+                  <h3>50+ Years of Experience</h3>
+                  <p>Decades of industry expertise across paints, waterproofing, and allied products.</p>
+                </div>
+                <div class="why-card" style="min-height:auto;padding:22px 24px;">
+                  <i class="fa-solid fa-star"></i>
+                  <h3>Leading Asian Paints Dealer</h3>
+                  <p>Trusted Asian Paints dealer in Hyderabad for over 10 years with a wide range of premium brands.</p>
+                </div>
+                <div class="why-card" style="min-height:auto;padding:22px 24px;">
+                  <i class="fa-solid fa-users-gear"></i>
+                  <h3>Skilled Workforce</h3>
+                  <p>Modern tools, experienced teams, timely delivery, and transparent pricing on every project.</p>
+                </div>
+              </div>
+            </div>
+            <div class="reveal">
+              <div class="label" style="margin-bottom:18px;">Why Clients Choose Us</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+                <div style="background:white;border:1px solid rgba(17,17,17,.08);border-radius:22px;padding:24px;text-align:center;box-shadow:0 16px 45px rgba(15,23,42,.04);">
+                  <i class="fa-solid fa-sliders" style="color:var(--blue);font-size:22px;margin-bottom:12px;display:block;"></i>
+                  <p style="font-size:13px;font-weight:700;color:var(--text);">Customized Solutions</p>
+                </div>
+                <div style="background:white;border:1px solid rgba(17,17,17,.08);border-radius:22px;padding:24px;text-align:center;box-shadow:0 16px 45px rgba(15,23,42,.04);">
+                  <i class="fa-solid fa-tag" style="color:var(--blue);font-size:22px;margin-bottom:12px;display:block;"></i>
+                  <p style="font-size:13px;font-weight:700;color:var(--text);">Affordable Pricing</p>
+                </div>
+                <div style="background:white;border:1px solid rgba(17,17,17,.08);border-radius:22px;padding:24px;text-align:center;box-shadow:0 16px 45px rgba(15,23,42,.04);">
+                  <i class="fa-solid fa-clock" style="color:var(--blue);font-size:22px;margin-bottom:12px;display:block;"></i>
+                  <p style="font-size:13px;font-weight:700;color:var(--text);">On-Time Completion</p>
+                </div>
+                <div style="background:white;border:1px solid rgba(17,17,17,.08);border-radius:22px;padding:24px;text-align:center;box-shadow:0 16px 45px rgba(15,23,42,.04);">
+                  <i class="fa-solid fa-user-tie" style="color:var(--blue);font-size:22px;margin-bottom:12px;display:block;"></i>
+                  <p style="font-size:13px;font-weight:700;color:var(--text);">Experienced Team</p>
+                </div>
+                <div style="background:white;border:1px solid rgba(17,17,17,.08);border-radius:22px;padding:24px;text-align:center;box-shadow:0 16px 45px rgba(15,23,42,.04);grid-column:span 2;">
+                  <i class="fa-solid fa-shield-halved" style="color:var(--blue);font-size:22px;margin-bottom:12px;display:block;"></i>
+                  <p style="font-size:13px;font-weight:700;color:var(--text);">Quality Assurance at Every Stage</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 5: Reputed Clients Carousel -->
+      <div style="background:white;padding:80px 0 60px;overflow:hidden;">
+        <div class="container">
+          <div class="section-head center reveal" style="margin-bottom:48px;">
+            <div class="label">Our Reputed Clients</div>
+            <h2>Trusted by the best in Hyderabad.</h2>
+          </div>
+        </div>
+
+        <!-- Single infinite scrolling row -->
+        <div style="overflow:hidden;">
+          <div class="clients-track clients-track-1" style="display:flex;width:max-content;gap:18px;">
+            <div class="client-logo-card"><img src="prasads.png" alt="Prasads IMAX" style="height:40px;width:auto;object-fit:contain;" /><span>Prasads IMAX</span></div>
+            <div class="client-logo-card"><img src="Taj.png" alt="Taj Deccan" style="height:40px;width:auto;object-fit:contain;" /><span>Taj Deccan</span></div>
+            <div class="client-logo-card"><img src="Fernandez.png" alt="Fernandez Hospitals" style="height:40px;width:auto;object-fit:contain;" /><span>Fernandez Hospitals</span></div>
+            <div class="client-logo-card"><img src="namisree.png" alt="Namisree" style="height:40px;width:auto;object-fit:contain;" /><span>Namisree</span></div>
+            <div class="client-logo-card"><img src="atl.png" alt="Atul India" style="height:40px;width:auto;object-fit:contain;" /><span>Atul India</span></div>
+            <div class="client-logo-card"><img src="Sudha.png" alt="Sudhakar Pipes" style="height:40px;width:auto;object-fit:contain;" /><span>Sudhakar Pipes</span></div>
+            <div class="client-logo-card"><img src="client7.png" alt="RS Bros" style="height:40px;width:auto;object-fit:contain;" /><span>RS Bros</span></div>
+            <div class="client-logo-card"><img src="HITEX.png" alt="HITEX" style="height:40px;width:auto;object-fit:contain;" /><span>HITEX</span></div>
+            <div class="client-logo-card"><img src="amala.png" alt="Amala Projects" style="height:40px;width:auto;object-fit:contain;" /><span>Amala Projects</span></div>
+            <div class="client-logo-card"><img src="eternal.png" alt="Eternal Builders" style="height:40px;width:auto;object-fit:contain;" /><span>Eternal Builders</span></div>
+            <div class="client-logo-card"><img src="Yashoda_Hospitals_logo.png" alt="Yashoda Hospitals" style="height:40px;width:auto;object-fit:contain;" /><span>Yashoda Hospitals</span></div>
+            <div class="client-logo-card"><img src="bvb.png" alt="Bharatiya Vidya Bhavan's" style="height:40px;width:auto;object-fit:contain;" /><span>Bharatiya Vidya Bhavan's</span></div>
+            <div class="client-logo-card"><img src="sitara.png" alt="Hotel Sitara" style="height:40px;width:auto;object-fit:contain;" /><span>Hotel Sitara</span></div>
+            <div class="client-logo-card"><img src="isb.png" alt="ISB Gachibowli" style="height:40px;width:auto;object-fit:contain;" /><span>ISB Gachibowli</span></div>
+            <div class="client-logo-card"><img src="daspalla.png" alt="Daspalla Hotels" style="height:40px;width:auto;object-fit:contain;" /><span>Daspalla Hotels</span></div>
+            <div class="client-logo-card"><img src="ganga.png" alt="Ganga Kaveri Seeds" style="height:40px;width:auto;object-fit:contain;" /><span>Ganga Kaveri Seeds</span></div>
+            <div class="client-logo-card"><img src="jbiet-logo-1.png" alt="JBIET" style="height:40px;width:auto;object-fit:contain;" /><span>JBIET</span></div>
+            <div class="client-logo-card"><img src="eenadu.png" alt="Eenadu Group" style="height:40px;width:auto;object-fit:contain;" /><span>Eenadu Group</span></div>
+            <!-- duplicate set for seamless loop -->
+             <div class="client-logo-card"><img src="prasads.png" alt="Prasads IMAX" style="height:40px;width:auto;object-fit:contain;" /><span>Prasads IMAX</span></div>
+            <div class="client-logo-card"><img src="Taj.png" alt="Taj Deccan" style="height:40px;width:auto;object-fit:contain;" /><span>Taj Deccan</span></div>
+            <div class="client-logo-card"><img src="Fernandez.png" alt="Fernandez Hospitals" style="height:40px;width:auto;object-fit:contain;" /><span>Fernandez Hospitals</span></div>
+            <div class="client-logo-card"><img src="namisree.png" alt="Namisree" style="height:40px;width:auto;object-fit:contain;" /><span>Namisree</span></div>
+            <div class="client-logo-card"><img src="atl.png" alt="Atul India" style="height:40px;width:auto;object-fit:contain;" /><span>Atul India</span></div>
+            <div class="client-logo-card"><img src="Sudha.png" alt="Sudhakar Pipes" style="height:40px;width:auto;object-fit:contain;" /><span>Sudhakar Pipes</span></div>
+            <div class="client-logo-card"><img src="client7.png" alt="RS Bros" style="height:40px;width:auto;object-fit:contain;" /><span>RS Bros</span></div>
+            <div class="client-logo-card"><img src="HITEX.png" alt="HITEX" style="height:40px;width:auto;object-fit:contain;" /><span>HITEX</span></div>
+            <div class="client-logo-card"><img src="amala.png" alt="Amala Projects" style="height:40px;width:auto;object-fit:contain;" /><span>Amala Projects</span></div>
+            <div class="client-logo-card"><img src="eternal.png" alt="Eternal Builders" style="height:40px;width:auto;object-fit:contain;" /><span>Eternal Builders</span></div>
+            <div class="client-logo-card"><img src="Yashoda_Hospitals_logo.png" alt="Yashoda Hospitals" style="height:40px;width:auto;object-fit:contain;" /><span>Yashoda Hospitals</span></div>
+            <div class="client-logo-card"><img src="bvb.png" alt="Bharatiya Vidya Bhavan's" style="height:40px;width:auto;object-fit:contain;" /><span>Bharatiya Vidya Bhavan's</span></div>
+            <div class="client-logo-card"><img src="sitara.png" alt="Hotel Sitara" style="height:40px;width:auto;object-fit:contain;" /><span>Hotel Sitara</span></div>
+            <div class="client-logo-card"><img src="isb.png" alt="ISB Gachibowli" style="height:40px;width:auto;object-fit:contain;" /><span>ISB Gachibowli</span></div>
+            <div class="client-logo-card"><img src="daspalla.png" alt="Daspalla Hotels" style="height:40px;width:auto;object-fit:contain;" /><span>Daspalla Hotels</span></div>
+            <div class="client-logo-card"><img src="ganga.png" alt="Ganga Kaveri Seeds" style="height:40px;width:auto;object-fit:contain;" /><span>Ganga Kaveri Seeds</span></div>
+            <div class="client-logo-card"><img src="jbiet-logo-1.png" alt="JBIET" style="height:40px;width:auto;object-fit:contain;" /><span>JBIET</span></div>
+            <div class="client-logo-card"><img src="eenadu.png" alt="Eenadu Group" style="height:40px;width:auto;object-fit:contain;" /><span>Eenadu Group</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block 6: Full-width CTA banner -->
+      <div style="position:relative;overflow:hidden;min-height:320px;display:flex;align-items:center;justify-content:center;text-align:center;">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=90" alt="Building" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;inset:0;background:rgba(7,9,15,.72);"></div>
+        <div style="position:relative;z-index:2;padding:80px 24px;" class="reveal">
+          <div class="label" style="color:rgba(255,255,255,.6);margin-bottom:14px;">Get in Touch</div>
+          <h2 style="color:white;font-size:clamp(32px,4.5vw,58px);letter-spacing:-.055em;margin-bottom:14px;">Sri Rama Group</h2>
+          <p style="color:rgba(255,255,255,.7);font-size:17px;max-width:560px;margin:0 auto 32px;line-height:1.7;">Quality you can trust. Service you can rely on.</p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            <a href="tel:9866969696" class="btn btn-glass"><i class="fa-solid fa-phone"></i> 9866 96 96 96</a>
+            <a href="https://www.hometotal.in" target="_blank" rel="noopener" class="btn btn-glass"><i class="fa-solid fa-globe"></i> www.hometotal.in</a>
+            <a href="https://wa.me/919866969696" target="_blank" rel="noopener" class="btn" style="background:#25D366;color:white;"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section section-soft" id="services">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="label">Services</div>
+          <h2>Exterior maintenance engineered for modern buildings.</h2>
+          <p>Every service is built around professional surface preparation, aerial access, controlled execution and clean finishing.</p>
+        </div>
+
+        <div class="cards">
+          <article class="service-card reveal">
+            <div class="service-img">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=900&q=90" alt="Drone painting service for buildings" />
+            </div>
+            <div class="icon"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+            <h3>Drone Painting</h3>
+            <p>High-reach exterior painting with uniform coverage, reduced access risk and professional finish control.</p>
+            <a class="learn" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20want%20to%20know%20more%20about%20Drone%20Painting%20service.">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-img">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=900&q=90" alt="Water pressure washing service for exterior surfaces" />
+            </div>
+            <div class="icon"><i class="fa-solid fa-water"></i></div>
+            <h3>Pressure Washing</h3>
+            <p>Deep cleaning for exterior walls, commercial surfaces, building facades, roofs and industrial zones.</p>
+            <a class="learn" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20want%20to%20know%20more%20about%20Water%20Pressure%20Washing%20service.">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-img">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=90" alt="Waterproofing work for building surface and roof protection" />
+            </div>
+            <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Waterproofing</h3>
+            <p>Durable protective applications designed to prevent seepage, leakage and weather exposure damage.</p>
+            <a class="learn" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20want%20to%20know%20more%20about%20Waterproofing%20service.">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-img">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=90" alt="Texture coating and exterior wall finishing service" />
+            </div>
+            <div class="icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Texture Coating</h3>
+            <p>Premium texture finishes that elevate exterior beauty while adding an extra layer of protection.</p>
+            <a class="learn" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20want%20to%20know%20more%20about%20Texture%20Coating%20service.">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="label">Why ColorCopter</div>
+          <h2>A command-center approach to exterior maintenance.</h2>
+          <p>ColorCopter is not just a service company. It is a drone-powered exterior intelligence system designed for safety, speed and premium finish quality.</p>
+        </div>
+
+        <div class="why-lab">
+          <div class="why-command reveal">
+            <div class="why-command-content">
+              <div class="eyebrow">
+                <i class="fa-solid fa-satellite-dish"></i>
+                Live Surface Intelligence
+              </div>
+
+              <h3 style="font-size:36px;letter-spacing:-.055em;line-height:1.08;margin-bottom:14px;">Map. Apply. Verify.</h3>
+              <p style="color:var(--muted);line-height:1.7;">Every project moves through a smarter aerial workflow where surface zones, height risks and application paths are planned before execution.</p>
+
+              <div class="command-screen">
+                <div class="route-line"></div>
+                <div class="route-dot"></div>
+                <div class="telemetry">
+                  <div>Coverage 98%</div>
+                  <div>Height Safe</div>
+                  <div>Route Active</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-grid">
+            <div class="why-card reveal">
+              <i class="fa-solid fa-user-shield"></i>
+              <h3>Human Safety First</h3>
+              <p>Reduce dependency on risky manual work at heights and make exterior projects safer.</p>
+            </div>
+
+            <div class="why-card reveal">
+              <i class="fa-solid fa-rocket"></i>
+              <h3>Speed Without Chaos</h3>
+              <p>Drone-assisted planning and execution reduce delays, setup time and project disturbance.</p>
+            </div>
+
+            <div class="why-card reveal">
+              <i class="fa-solid fa-bullseye"></i>
+              <h3>Controlled Finish</h3>
+              <p>Professional process design helps improve surface coverage, consistency and final look.</p>
+            </div>
+
+            <div class="why-card reveal">
+              <i class="fa-solid fa-chart-line"></i>
+              <h3>Operational Efficiency</h3>
+              <p>Better access planning helps commercial and residential clients complete projects smoothly.</p>
+            </div>
+
+            <div class="why-card reveal">
+              <i class="fa-solid fa-building-shield"></i>
+              <h3>Property Protection</h3>
+              <p>Waterproofing and coating workflows are planned to protect surfaces from long-term damage.</p>
+            </div>
+
+            <div class="why-card reveal">
+              <i class="fa-solid fa-award"></i>
+              <h3>Premium Experience</h3>
+              <p>From inspection to handover, the entire journey feels modern, transparent and professional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="technology">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="label">Technology</div>
+          <h2>Drone intelligence meets surface engineering.</h2>
+          <p>Our workflow is designed like a premium automation system: scan, map, apply and verify with precision.</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-card reveal">
+            <h3>Aerial Surface Intelligence</h3>
+            <p>ColorCopter maps building surfaces, understands application zones and helps reduce manual uncertainty during high-reach exterior projects.</p>
+            <div class="radar"></div>
+          </div>
+
+          <div class="mini-tech">
+            <div class="mini reveal">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <h3>Precision Mapping</h3>
+              <p>Structured surface planning before execution helps improve coverage quality and reduce wastage.</p>
+            </div>
+
+            <div class="mini reveal">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <h3>Controlled Application</h3>
+              <p>Designed for clean coating, washing and protective applications on exterior surfaces.</p>
+            </div>
+
+            <div class="mini reveal">
+              <i class="fa-solid fa-clipboard-check"></i>
+              <h3>Quality Verification</h3>
+              <p>Post-service checks support transparent delivery and professional project closure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="label">Process</div>
+          <h2>A premium workflow from inspection to handover.</h2>
+          <p>Every project follows a clear, disciplined system that keeps quality, safety and speed at the center.</p>
+        </div>
+
+        <div class="process-map">
+          <div class="step reveal">
+            <div class="number">01</div>
+            <h3>Site Inspection</h3>
+            <p>We inspect building height, surface condition, access points and project complexity.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="number">02</div>
+            <h3>Drone Mapping</h3>
+            <p>We map exterior zones and plan the most efficient application route.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="number">03</div>
+            <h3>Surface Application</h3>
+            <p>Painting, cleaning, waterproofing or coating is executed with controlled methodology.</p>
+          </div>
+
+          <div class="step reveal">
+            <div class="number">04</div>
+            <h3>Quality Handover</h3>
+            <p>Final checks ensure finish quality, coverage consistency and client-ready delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section carousel-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="label">Visual Showcase</div>
+          <h2>Exterior transformation, moving beautifully.</h2>
+          <p>A continuous visual stream of drone, facade, washing, waterproofing and exterior surface inspiration.</p>
+        </div>
+      </div>
+
+      <div class="image-carousel">
+        <div class="carousel-track">
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=800&q=90" alt="Drone service visual" />
+            <div class="carousel-caption"><span>Drone Access</span><h3>Aerial Exterior Service</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=90" alt="High-rise building exterior" />
+            <div class="carousel-caption"><span>High-Rise</span><h3>Building Painting</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=90" alt="Pressure washing equipment" />
+            <div class="carousel-caption"><span>Cleaning</span><h3>Pressure Washing</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=90" alt="Waterproofing and maintenance tools" />
+            <div class="carousel-caption"><span>Protection</span><h3>Waterproofing</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=90" alt="Exterior wall texture coating" />
+            <div class="carousel-caption"><span>Finish</span><h3>Texture Coating</h3></div>
+          </div>
+        </div>
+
+        <div class="carousel-track">
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=800&q=90" alt="Drone service visual" />
+            <div class="carousel-caption"><span>Drone Access</span><h3>Aerial Exterior Service</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=90" alt="High-rise building exterior" />
+            <div class="carousel-caption"><span>High-Rise</span><h3>Building Painting</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=90" alt="Pressure washing equipment" />
+            <div class="carousel-caption"><span>Cleaning</span><h3>Pressure Washing</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=90" alt="Waterproofing and maintenance tools" />
+            <div class="carousel-caption"><span>Protection</span><h3>Waterproofing</h3></div>
+          </div>
+
+          <div class="carousel-card">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=90" alt="Exterior wall texture coating" />
+            <div class="carousel-caption"><span>Finish</span><h3>Texture Coating</h3></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="label">Best For</div>
+          <h2>Built for properties where height, safety and finish matter.</h2>
+          <p>ColorCopter is ideal for buildings and surfaces where traditional access is slow, risky or expensive.</p>
+        </div>
+
+        <div class="usecase-grid">
+          <div class="usecase-card blue reveal">
+            <h3>High-Rise & Commercial Buildings</h3>
+            <p>Perfect for exterior painting, facade washing, waterproofing and visual maintenance of large buildings.</p>
+            <div class="chips">
+              <span class="chip">Apartments</span>
+              <span class="chip">Office Towers</span>
+              <span class="chip">Hotels</span>
+              <span class="chip">Malls</span>
+            </div>
+          </div>
+
+          <div class="usecase-card reveal">
+            <h3>Industrial, Residential & Institutional Projects</h3>
+            <p>Useful for factories, warehouses, schools, hospitals, villas, gated communities and maintenance-heavy properties.</p>
+            <div class="chips">
+              <span class="chip">Factories</span>
+              <span class="chip">Warehouses</span>
+              <span class="chip">Hospitals</span>
+              <span class="chip">Villas</span>
+              <span class="chip">Campuses</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head center reveal">
+          <div class="label">FAQ</div>
+          <h2>Questions before booking ColorCopter?</h2>
+          <p>Quick answers for property owners, builders, facility managers, architects and commercial clients.</p>
+        </div>
+
+        <div class="faq-grid reveal">
+          <div class="faq-column">
+            <div class="faq-item active">
+              <button class="faq-question">What is ColorCopter? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>ColorCopter is a drone-powered exterior maintenance company offering drone painting, pressure washing, waterproofing and texture coating.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Can drones paint high-rise buildings? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Yes. Drone-assisted systems can support high-reach exterior painting where traditional access methods are slow, risky or expensive.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Do you provide site inspection? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Yes. Site inspection helps understand height, surface condition, area, coating requirement and execution complexity.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Is drone painting safe? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Drone-assisted painting reduces human exposure at dangerous heights and helps make high-reach exterior work safer.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Which properties are suitable? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>High-rise buildings, commercial properties, apartments, villas, hotels, warehouses, factories and institutional buildings are suitable.</p></div>
+            </div>
+          </div>
+
+          <div class="faq-column">
+            <div class="faq-item">
+              <button class="faq-question">Do you offer waterproofing? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Yes. ColorCopter provides waterproofing services to help protect surfaces from seepage, leakage and weather-related damage.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Do you offer pressure washing? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Yes. We offer pressure washing for exterior walls, facades, roofs, commercial surfaces and industrial areas.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">How is pricing calculated? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Pricing depends on area, height, surface condition, material, access complexity and service type. Final quote is shared after inspection.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Can I book through WhatsApp? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Yes. You can click any WhatsApp button on this website to ask for details or request a free quote.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">Do you handle commercial projects? <i class="fa-solid fa-plus"></i></button>
+              <div class="faq-answer"><p>Yes. ColorCopter is designed for residential, commercial, high-rise and industrial exterior maintenance projects.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Ready To Transform Your Property?</h2>
+          <p>Start a WhatsApp chat and our team will guide you with services, inspection and quotation.</p>
+          <a class="btn btn-glass" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20got%20to%20know%20about%20ColorCopter%20and%20I%20want%20to%20know%20more%20details.">
+            Chat on WhatsApp <i class="fa-brands fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a href="#home" class="logo">Color<span>Copter</span></a>
+        <p style="margin-top:18px;max-width:360px;">
+          Painting the future with drone-powered surface excellence for modern properties, commercial buildings and industrial structures.
+        </p>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#home">Home</a></p>
+        <p><a href="#services">Services</a></p>
+        <p><a href="#why">Why Us</a></p>
+        <p><a href="#technology">Technology</a></p>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <p>Drone Painting</p>
+        <p>Pressure Washing</p>
+        <p>Waterproofing</p>
+        <p>Texture Coating</p>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p>Phone: +91 90100 02020</p>
+        <p>Drone-powered exterior maintenance</p>
+        <p><a href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20got%20to%20know%20about%20ColorCopter%20and%20I%20want%20to%20know%20more%20details.">Get Free Quote</a></p>
+      </div>
+    </div>
+
+    <div class="container copyright">
+      <span>Â© 2026 ColorCopter. All rights reserved.</span>
+      <span>Precision From Above.</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/919010002020?text=Hi%20ColorCopter%2C%20I%20got%20to%20know%20about%20ColorCopter%20and%20I%20want%20to%20know%20more%20details." aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const progress = document.getElementById("progress");
+    const cursor = document.getElementById("cursor");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const heroFrame = document.getElementById("heroFrame");
+
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 40);
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = `${(scrollTop / docHeight) * 100}%`;
+    });
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    document.addEventListener("mousemove", e => {
+      if (cursor) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      }
+
+      if (heroFrame && window.innerWidth > 980) {
+        const x = (window.innerWidth / 2 - e.clientX) / 48;
+        const y = (window.innerHeight / 2 - e.clientY) / 58;
+        heroFrame.style.transform = `rotateX(${4 + y * 0.15}deg) rotateY(${-5 - x * 0.15}deg) translate(${x}px, ${y}px)`;
+      }
+    });
+
+    document.querySelectorAll("a, button, .service-card, .step, .why-card, .mini, .carousel-card, .usecase-card, .faq-item").forEach(el => {
+      el.addEventListener("mouseenter", () => cursor && cursor.classList.add("active"));
+      el.addEventListener("mouseleave", () => cursor && cursor.classList.remove("active"));
+    });
+
+    document.querySelectorAll(".faq-question").forEach(button => {
+      button.addEventListener("click", () => {
+        const item = button.parentElement;
+        const column = item.parentElement;
+
+        column.querySelectorAll(".faq-item").forEach(faq => {
+          if (faq !== item) faq.classList.remove("active");
+        });
+
+        item.classList.toggle("active");
+      });
+    });
+
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".reveal").forEach((el, index) => {
+        el.style.transitionDelay = `${Math.min(index * 0.045, 0.42)}s`;
+      });
+    });
+  </script>
+</body>
+</html>
